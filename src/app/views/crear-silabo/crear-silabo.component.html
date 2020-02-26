@@ -1,0 +1,17 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="select1">Select</label>
+                <div class="col-md-9">
+                    <select id="select1" name="select1" class="form-control">
+                        <option value="0">Seleccione la asignatura</option>
+                        <option *ngFor="let asignatura of asignaturas" [value]="asignatura.id">
+                            {{asignatura.nombre}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
