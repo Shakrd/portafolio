@@ -1,17 +1,34 @@
-<div class="animated fadeIn">
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="form-group row">
-                <label class="col-md-3 col-form-label" for="select1">Select</label>
-                <div class="col-md-9">
-                    <select id="select1" name="select1" class="form-control">
-                        <option value="0">Seleccione la asignatura</option>
-                        <option *ngFor="let asignatura of asignaturas" [value]="asignatura.id">
-                            {{asignatura.nombre}}
-                        </option>
-                    </select>
-                </div>
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                <form [formGroup]="asignaturasForm" (ngSubmit)="onSubmit()">
+                  <h1>Crear Sílabo</h1>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="name">Asignatura</label>
+                    <div class="col-md-9">
+                      <select formControlName="asignaturas">
+                        <option>Seleccione Asignatura</option>
+                        <option *ngFor="let asignatura of asignaturas">{{asignatura.nombre}}</option>
+                      </select>                    
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <button type="button" class="btn btn-primary px-4">Crear vacio</button>
+                      <button>Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
+           </div>
         </div>
+      </div>
     </div>
+  </main>
 </div>

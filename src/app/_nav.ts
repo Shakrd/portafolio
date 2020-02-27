@@ -124,6 +124,11 @@ export const navItems: INavData[] = [
     icon: 'icon-pie-chart'
   },
   {
+    name: 'Crear Sílabo',
+    url: '/crear-silabo',
+    icon: 'icon-speedometer',
+  },
+  {
     name: 'Icons',
     url: '/icons',
     icon: 'icon-star',
