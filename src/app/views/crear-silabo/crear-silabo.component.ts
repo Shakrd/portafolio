@@ -1,31 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { of } from 'rxjs';
+import { SilaboServiceService } from './silabo-service.service';
+import { Asignatura } from '../../entidades/asignatura';
 
 @Component({
+  selector: 'app-crear-silabo',
   templateUrl: 'crear-silabo.component.html'
 })
 export class CrearSilaboComponent {
-  asignaturas: any = [
-  {id:1, nombre: 'Base de Datos, 2019-2020'},
-  {id:2, nombre: 'Ingeniería de Software, 2019-2020'},
-  {id:3, nombre: 'Procesos, 2019-2020'},    
-  {id:4, nombre: 'Tendencias de Programación, 2019-2020'}
-]
+  asignaturas: Asignatura[];
 
-correquisitosAsignatura: any = [
-  {id:1, nombre: 'Base de Datos, 2019-2020', codigo: 'abc1234'},
-  {id:2, nombre: 'Ingeniería de Software, 2019-2020', codigo: 'qwer789'}
- 
-]
+  correquisitosAsignatura: Asignatura[]
 
-prerrequisitosAsignatura: any = [
-  {id:1, nombre: 'Base de Datos, 2019-2020', codigo: 'abc1234'},
-  {id:2, nombre: 'Ingeniería de Software, 2019-2020', codigo: 'qwer789'},
-  {id:3, nombre: 'Procesos, 2019-2020', codigo: 'pjyge8925'},    
-  {id:4, nombre: 'Tendencias de Programación, 2019-2020', codigo: 'azxc463'}
-]
-  constructor(private formBuilder: FormBuilder) {}
+  prerrequisitosAsignatura: Asignatura[]
+
+  constructor(private formBuilder: FormBuilder, private silaboService: SilaboServiceService) {}
     
   asignaturasForm = this.formBuilder.group({
     asignaturas: ['']
@@ -38,6 +27,27 @@ prerrequisitosAsignatura: any = [
   prerrequisitosForm = this.formBuilder.group({
     correquisitosAsignatura: ['']
   })
+
+  ngOnInit() {
+    this.getAsignaturas();
+    this.getCorrequisitos();
+    this.getPrerrequisitos();
+  }
+
+  getAsignaturas(): void {
+    this.silaboService.getAsignaturas()
+        .subscribe(asignaturas => this.asignaturas = asignaturas);
+  }
+
+  getCorrequisitos(): void {
+    this.silaboService.getCorrequisitos()
+        .subscribe(correquisitosAsignatura => this.correquisitosAsignatura = correquisitosAsignatura);
+  }
+
+  getPrerrequisitos(): void {
+    this.silaboService.getPrerrequisitos()
+        .subscribe(prerrequisitosAsignatura => this.prerrequisitosAsignatura = prerrequisitosAsignatura);
+  }
 
     submit() {
       alert(JSON.stringify(this.asignaturasForm.value))

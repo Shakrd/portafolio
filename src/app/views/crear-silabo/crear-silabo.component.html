@@ -3,13 +3,15 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 mx-auto">
-          <div class="card-group">
+          <div class="card border-info">
             <div class="card p-4">
               <div class="card-body">
                 <form [formGroup]="asignaturasForm" (ngSubmit)="onSubmit()">
                   <h1>Crear Sílabo</h1>
                   <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="name">Asignatura</label>
+                    <label class="col-md-3 col-form-
+                    
+                    label" for="name">Asignatura</label>
                     <div class="col-md-9">
                       <select formControlName="asignaturas">
                         <option>Seleccione Asignatura</option>
@@ -20,7 +22,6 @@
                   <div class="row">
                     <div class="col-6">
                       <button type="button" class="btn btn-primary px-4">Crear vacio</button>
-                      <button>Submit</button>
                     </div>
                   </div>
                 </form>
@@ -32,9 +33,10 @@
     </div>
   </main>
 </div>
+<br>
 <div class="row">
   <div class="col-sm-6">
-    <div class="card">
+    <div class="card border-success">
       <div class="card-header">
         <strong>Prerrequisitos de la asignatura</strong>
       </div>
@@ -64,7 +66,7 @@
   </div>
   <!--/.col-->
   <div class="col-sm-6">
-    <div class="card">
+    <div class="card border-success">
       <div class="card-header">
         <strong>Correquisitos de la asignatura</strong>
       </div>
