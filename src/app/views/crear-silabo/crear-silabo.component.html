@@ -14,7 +14,7 @@
                       <select formControlName="asignaturas">
                         <option>Seleccione Asignatura</option>
                         <option *ngFor="let asignatura of asignaturas">{{asignatura.nombre}}</option>
-                      </select>                    
+                      </select>
                     </div>
                   </div>
                   <div class="row">
@@ -26,9 +26,71 @@
                 </form>
               </div>
             </div>
-           </div>
+          </div>
         </div>
       </div>
     </div>
   </main>
 </div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        <strong>Prerrequisitos de la asignatura</strong>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <ul class="prerrequisitosForm">
+                <li *ngFor="let prerrequisito of prerrequisitosAsignatura">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Còdigo</label>
+                    <div class="col-md-9">
+                      <p class="form-control-Còdigo">{{prerrequisito.codigo}}</p>
+                    </div>
+                    <label class="col-md-3 col-form-label">Asignatura</label>
+                    <div class="col-md-9">
+                      <p class="form-control-Còdigo">{{prerrequisito.nombre}}</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+  <!--/.col-->
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        <strong>Correquisitos de la asignatura</strong>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <ul class="correquisitosForm">
+                <li *ngFor="let correquisito of correquisitosAsignatura">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Còdigo</label>
+                    <div class="col-md-9">
+                      <p class="form-control-Còdigo">{{correquisito.codigo}}</p>
+                    </div>
+                    <label class="col-md-3 col-form-label">Asignatura</label>
+                    <div class="col-md-9">
+                      <p class="form-control-Còdigo">{{correquisito.nombre}}</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+</div>
+<!--/.row-->
