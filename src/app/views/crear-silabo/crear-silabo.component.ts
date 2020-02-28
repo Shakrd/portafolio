@@ -14,6 +14,8 @@ export class CrearSilaboComponent {
 
   prerrequisitosAsignatura: Asignatura[]
 
+  allAsignatura: Asignatura[]
+
   constructor(private formBuilder: FormBuilder, private silaboService: SilaboServiceService) {}
     
   asignaturasForm = this.formBuilder.group({
@@ -28,10 +30,15 @@ export class CrearSilaboComponent {
     correquisitosAsignatura: ['']
   })
 
+  allAsignaturasForm = this.formBuilder.group({
+    allAsignatura: ['']
+  })
+
   ngOnInit() {
     this.getAsignaturas();
     this.getCorrequisitos();
     this.getPrerrequisitos();
+    this.getAllAsignaturas();
   }
 
   getAsignaturas(): void {
@@ -47,6 +54,11 @@ export class CrearSilaboComponent {
   getPrerrequisitos(): void {
     this.silaboService.getPrerrequisitos()
         .subscribe(prerrequisitosAsignatura => this.prerrequisitosAsignatura = prerrequisitosAsignatura);
+  }
+
+  getAllAsignaturas(): void {
+    this.silaboService.getAllAsignaturas()
+        .subscribe(allAsignatura => this.allAsignatura = allAsignatura);
   }
 
     submit() {
